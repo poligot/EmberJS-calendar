@@ -1,0 +1,27 @@
+<div class="tableDay">
+<table>
+  <tr>
+    {{#each nameday in dayArr}}
+      {{nameday}}
+    {{/each}}
+  </tr>
+
+  {{#each week in matrixDay}}
+  <tr>
+    
+    {{#each dayN in week}}
+      {{#if dayN}}
+        {{#with dayN}}
+          <td {{action 'selectedDay' date}} {{bind-attr class="isToday:toDay:day isSelected:selected"}}>{{{date}}}</td>
+        {{/with}}
+      {{else}}
+        <td></td>
+      {{/if}}
+      
+    {{/each}}
+
+  </tr>  
+  {{/each}}
+</table>  
+  {{outlet}}
+</div>
